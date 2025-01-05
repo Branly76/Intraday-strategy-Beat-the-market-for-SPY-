@@ -127,12 +127,6 @@ df_daily['caldt'] = pd.to_datetime(df_daily['caldt'], utc=True)
 df_daily['caldt'] = df_daily['caldt'].dt.date
 df_daily.set_index('caldt', inplace=True)
 
-
-""" df_daily = pd.read_csv(day_data)
-df_daily['caldt'] = (pd.to_datetime(df_daily['caldt'])).dt.date
-df_daily.set_index('caldt', inplace=True)  
-# Set the datetime column as the DataFrame index for easy time series manipulation. """
-
 df_daily['ret'] = df_daily['close'].diff() / df_daily['close'].shift()
 
 # Loop through all days, starting from the second day
